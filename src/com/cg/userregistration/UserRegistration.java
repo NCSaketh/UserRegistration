@@ -36,25 +36,24 @@ public class UserRegistration {
 			return true;
 		}
 	}
-	
-	public static boolean validEmailID()
-	{	Scanner sc = new Scanner(System.in);
+
+	public static boolean validEmailID() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your email");
-		if(Pattern.matches("[\\w]{3,}([.][a-zA-Z]{3,})*[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}([.][a-zA-Z]{2,})*",sc.next()))
-				{
+		if (Pattern.matches("[\\w]{3,}([.][a-zA-Z]{3,})*[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}([.][a-zA-Z]{2,})*",
+				sc.next())) {
 			System.out.println("Valid Email");
 			return true;
-				}
-		else {
+		} else {
 			System.out.println("Invalid Email! Please enter again.");
 			return validEmailID();
 		}
 	}
-	
+
 	public static boolean validMobileNo() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your mobile number along with country code");
-		String s=sc.nextLine();
+		String s = sc.nextLine();
 		if (Pattern.matches("[1-9]{1}[0-9]{1}[\\s]{1}[1-9]{1}[0-9]{9}", s)) {
 			System.out.println("Valid mobile phone");
 			return true;
@@ -63,11 +62,12 @@ public class UserRegistration {
 			return validMobileNo();
 		}
 	}
-	
+
 	public static boolean validPassword() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your password");
-		if (Pattern.matches("(.*[A-Z].*)",sc.next()) && Pattern.matches("[\\S]{8,}",sc.next())) {
+		if (Pattern.matches("(.*[A-Z]+.*)", sc.next()) && Pattern.matches("[\\S]{8,}", sc.next())
+				&& Pattern.matches("(.*[0-9]+.*)", sc.next())) {
 			System.out.println("Valid password");
 			return true;
 		} else {
@@ -75,6 +75,5 @@ public class UserRegistration {
 			return validPassword();
 		}
 	}
-	
-	
+
 }
