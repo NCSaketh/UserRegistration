@@ -9,6 +9,7 @@ public class UserRegistration {
 		ValidLastName();
 		validEmailID();
 		validMobileNo();
+		validPassword();
 
 	}
 
@@ -60,6 +61,18 @@ public class UserRegistration {
 		} else {
 			System.out.println("Invalid mobile number! Please enter again.");
 			return validMobileNo();
+		}
+	}
+	
+	public static boolean validPassword() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your password");
+		if (Pattern.matches("[\\S]{8,}", sc.next())) {
+			System.out.println("Valid password");
+			return true;
+		} else {
+			System.out.println("Invalid password! Please enter again.");
+			return validPassword();
 		}
 	}
 	
