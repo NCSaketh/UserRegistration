@@ -8,6 +8,7 @@ public class UserRegistration {
 		ValidFirstName();
 		ValidLastName();
 		validEmailID();
+		validMobileNo();
 
 	}
 
@@ -48,5 +49,19 @@ public class UserRegistration {
 			return validEmailID();
 		}
 	}
+	
+	public static boolean validMobileNo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your mobile number along with country code");
+		String s=sc.nextLine();
+		if (Pattern.matches("[1-9]{1}[0-9]{1}[\\s]{1}[1-9]{1}[0-9]{9}", s)) {
+			System.out.println("Valid mobile phone");
+			return true;
+		} else {
+			System.out.println("Invalid mobile number! Please enter again.");
+			return validMobileNo();
+		}
+	}
+	
 	
 }
