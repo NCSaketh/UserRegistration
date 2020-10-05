@@ -67,7 +67,7 @@ public class UserRegistration {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your password");
 		if (Pattern.matches("(.*[A-Z]+.*)", sc.next()) && Pattern.matches("[\\S]{8,}", sc.next())
-				&& Pattern.matches("(.*[0-9]+.*)", sc.next())) {
+				&& Pattern.matches("(.*[0-9]+.*)", sc.next()) && Pattern.matches("(.*[\\W]{1}.*)",sc.next())) {
 			System.out.println("Valid password");
 			return true;
 		} else {
