@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 	public static void main(String[] args) {
 		ValidFirstName();
+		ValidLastName();
 
 	}
 
@@ -21,4 +22,15 @@ public class UserRegistration {
 		}
 	}
 
+	public static boolean ValidLastName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Last Name");
+		if (!Pattern.matches("[A-Z]{1}[a-z]{2,}", sc.next())) {
+			System.out.println("Not a valid Last Name , Please repeat.");
+			return ValidLastName();
+		} else {
+			System.out.println("Valid Last Name");
+			return true;
+		}
+	}
 }
